@@ -17,7 +17,7 @@ create table book (
     isbn char (10),
     price decimal (10,2),
     copies decimal (10,0),
-    title varchar (182) default ’’, 
+    title varchar (182) default '', 
     who varchar (36), 
     primary key (isbn),
     foreign key (who) references author
