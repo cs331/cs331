@@ -64,6 +64,6 @@ having sum(totalCount) >= 100;
 select customer.nameC, customer.emailC, count (distinct sale.bought), sum(sale.totalCount)
 from customer, sale
 where customer.emailC = sale.buyer and
-    customer.dept = ’CSCI’
+    customer.dept = 'CSCI'
 group by customer.nameC, customer.emailC
 having sum(sale.totalCount) >= 20;
