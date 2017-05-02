@@ -1,3 +1,8 @@
+drop table customer cascade constraints;
+drop table author cascade constraints;
+drop table book cascade constraints;
+drop table sale cascade constraints;
+
 create table customer (
     emailC varchar (36),
     nameC varchar (24),
