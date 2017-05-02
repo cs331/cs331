@@ -37,3 +37,11 @@ create table sale (
     foreign key (buyer) references customer,
     foreign key (bought) references book
 );
+
+insert into customer (emailC, nameC, dept) values ('hikingfan@gmail.com', 'Hiking Fan', 'CS');
+insert into customer (emailC, nameC, dept) values ('bikingfan@gmail.com', 'Biking Fan', 'CS');
+insert into customer (emailC, nameC, dept) values ('rowingfan@gmail.com', 'Rowing Fan', 'Math');
+
+insert into author (emailA, nameA, born, country) values ('hikingfan@gmail.com', 'Hiking Fan', '25-Oct-1984', 'England');
+
+select extract (month from born) as month from author; 
