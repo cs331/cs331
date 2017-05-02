@@ -38,8 +38,8 @@ create table sale (
     foreign key (bought) references book
 );
 
-insert into customer (emailC, nameC, dept) values ('hikingfan@gmail.com', 'Hiking Fan', 'CS');
-insert into customer (emailC, nameC, dept) values ('bikingfan@gmail.com', 'Biking Fan', 'CS');
+insert into customer (emailC, nameC, dept) values ('hikingfan@gmail.com', 'Hiking Fan', 'CSCI');
+insert into customer (emailC, nameC, dept) values ('bikingfan@gmail.com', 'Biking Fan', 'CSCI');
 insert into customer (emailC, nameC, dept) values ('rowingfan@gmail.com', 'Rowing Fan', 'Math');
 
 insert into author (emailA, nameA, born, country) values ('katyperry@example.com', 'Katy Perry', '25-Oct-1984', 'USA');
@@ -60,3 +60,10 @@ book.who = author.emailA and
 author.born > '31-DEC-1980'
 group by nameA, emailA
 having sum(totalCount) >= 100;
+
+select customer.nameC, customer.emailC, count (distinct sale.bought), sum(sale.totalCount)
+from customer, sale
+where customer.emailC = sale.buyer and
+    customer.dept = ’CSCI’
+group by customer.nameC, customer.emailC
+having sum(sale.totalCount) >= 20;
