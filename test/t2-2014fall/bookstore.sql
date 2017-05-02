@@ -47,9 +47,16 @@ insert into author (emailA, nameA, born, country) values ('bryanadams@example.co
 insert into author (emailA, nameA, born, country) values ('philcollins@example.com', 'Phil Collins', '30-Jan-1951', 'England');
 insert into author (emailA, nameA, born, country) values ('kesha@example.com', 'Kesha Rose Sebert', '1-Mar-1987', 'USA');
 
-insert into book (isbn, price, copies, title, who) values ('3869305002', 164.71, 4, 'Bryan Adams: Exposed', 'bryanadams@example.com');
+insert into book (isbn, price, copies, title, who) values ('3869305002', 164.71, 4, 'Bryan Adams: Exposed', 'katyperry@example.com');
 
-insert into sale (buyer, bought, whenLast, totalCount) values ('hikingfan@gmail.com', '3869305002', '14-Feb-2007', 2);
+insert into sale (buyer, bought, whenLast, totalCount) values ('hikingfan@gmail.com', '3869305002', '14-Feb-2007', 25);
+insert into sale (buyer, bought, whenLast, totalCount) values ('bikingfan@gmail.com', '3869305002', '14-Feb-2007', 25);
+insert into sale (buyer, bought, whenLast, totalCount) values ('rowingfan@gmail.com', '3869305002', '14-Feb-2007', 125);
 
-select extract (month from author.born) as month from author; 
-select sale.bought as isbn, sale.totalCount as saleCount from sale;
+select nameA, emailA, max (price), sum(totalCount)
+from author, book, sale
+where book.isbn = sale.bought and
+book.who = author.emailA and
+author.born > '31-DEC-1980'
+group by nameA, emailA
+having sum(totalCount) >= 100;
