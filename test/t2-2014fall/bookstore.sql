@@ -42,6 +42,14 @@ insert into customer (emailC, nameC, dept) values ('hikingfan@gmail.com', 'Hikin
 insert into customer (emailC, nameC, dept) values ('bikingfan@gmail.com', 'Biking Fan', 'CS');
 insert into customer (emailC, nameC, dept) values ('rowingfan@gmail.com', 'Rowing Fan', 'Math');
 
-insert into author (emailA, nameA, born, country) values ('hikingfan@gmail.com', 'Hiking Fan', '25-Oct-1984', 'England');
+insert into author (emailA, nameA, born, country) values ('katyperry@example.com', 'Katy Perry', '25-Oct-1984', 'USA');
+insert into author (emailA, nameA, born, country) values ('bryanadams@example.com', 'Bryan Adams', '5-Nov-1959', 'Canada');
+insert into author (emailA, nameA, born, country) values ('philcollins@example.com', 'Phil Collins', '30-Jan-1951', 'England');
+insert into author (emailA, nameA, born, country) values ('kesha@example.com', 'Kesha Rose Sebert', '1-Mar-1987', 'USA');
 
-select extract (month from born) as month from author; 
+insert into book (isbn, price, copies, title, who) values ('3869305002', 164.71, 4, 'Bryan Adams: Exposed', 'bryanadams@example.com');
+
+insert into sale (buyer, bought, whenLast, totalCount) values ('hikingfan@gmail.com', '3869305002', '14-Feb-2007', 2);
+
+select extract (month from author.born) as month from author; 
+select sale.bought as isbn, sale.totalCount as saleCount from sale;
