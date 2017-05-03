@@ -38,6 +38,39 @@ create table sale (
     foreign key (bought) references book
 );
 
+create table agency (
+    name varchar(36),
+    location varchar(36),
+    rank decimal(10.0) check (rank >= 0 and rank <= 100),
+    primary key (name)
+);
+
+create table judge (
+    judgeId varchar(36),
+    agencyId varchar(36),
+    primary key (judgeId, agencyId),
+    foreign key (judgeId) references customer,
+    foreign key (agencyId) references agency
+);
+
+create table prize (
+    prizeId varchar(48),
+    yearAwarded char(4),
+    amountGiven decimal(10.0),
+    giver varchar(36),
+    foreign key (giver) references agency,
+    primary key (prizeId, yearAwarded)
+);
+
+create table winner (
+    prizeId varchar(48),
+    yearAwarded char(4),
+    winnerId varchar(36),
+    foreign key (winnerId) references author,
+    foreign key (prizeId, yearAwarded) references prize,
+    primary key (prizeId, yearAwarded) 
+);
+
 insert into customer (emailC, nameC, dept) values ('hikingfan@gmail.com', 'Hiking Fan', 'CSCI');
 insert into customer (emailC, nameC, dept) values ('bikingfan@gmail.com', 'Biking Fan', 'CSCI');
 insert into customer (emailC, nameC, dept) values ('rowingfan@gmail.com', 'Rowing Fan', 'Math');
