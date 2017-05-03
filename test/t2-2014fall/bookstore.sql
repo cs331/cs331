@@ -2,6 +2,10 @@ drop table customer cascade constraints;
 drop table author cascade constraints;
 drop table book cascade constraints;
 drop table sale cascade constraints;
+drop table agency cascade constraints;
+drop table judge cascade constraints;
+drop table prize cascade constraints;
+drop table winner cascade constraints;
 
 create table customer (
     emailC varchar (36),
