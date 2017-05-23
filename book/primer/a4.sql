@@ -7,3 +7,4 @@ alter table text add (opinion varchar (10));
 
 update text set opinion = 'Excellent!' where author = 'Old Scholar';
 update text set opinion = 'Bestseller' where author = 'Smart Guy';
+update text set opinion = 'Boo!! Bad!' where lower (title) like '%tests%';
