@@ -1,4 +1,4 @@
-create index text1_author_idx on text 1 (author); 
+create index text1_author_idx on text1 (author); 
 
 alter table text1 add (rank decimal (1,0));
 alter table text1 add constraint gt check (rank between 0 and 5);
