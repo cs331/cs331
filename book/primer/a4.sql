@@ -6,3 +6,4 @@ insert into text (year, author, title, isbn) values (2000, 'Nasty Professor', 'H
 alter table text add (opinion varchar (10));
 
 update text set opinion = 'Excellent!' where author = 'Old Scholar';
+update text set opinion = 'Bestseller' where author = 'Smart Guy';
